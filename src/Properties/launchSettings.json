@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "raw2sqlite": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\..\\samples\\114187_01c.raw -o ..\\..\\..\\..\\out\\114187_01c.sqlite"
+    }
+  }
+}
