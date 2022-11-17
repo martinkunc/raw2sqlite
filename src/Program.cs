@@ -41,7 +41,6 @@ namespace raw2sqlite
             var res = Parser.Default.ParseArguments<Options>(args)
                    .WithParsed<Options>(opts => RunOptionsAndReturnExitCode(opts)
                    );
-            Console.WriteLine(res.Value);
         }
 
         private static int RunOptionsAndReturnExitCode(Options opts)
