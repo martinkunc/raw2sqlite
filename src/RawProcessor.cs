@@ -80,7 +80,10 @@ namespace raw2sqlite
                 
                 var instrType = rawFile.GetInstrumentType(instrument-1);
                 _rawContext.InstrumentType.Add(new InstrumentTypeEntity { Index=instrument, InstrumentType = instrType.ToString() });
-                
+                if (instrType == Device.Other)
+                {
+                    continue;
+                }
                 rawFile.SelectInstrument(instrType, instrument);
                 var instrumentData = rawFile.GetInstrumentData();
                 var instrumentDataEntity = new InstrumentDataEntity(instrument, instrumentData.AxisLabelX, instrumentData.AxisLabelY, ChannelLabels: Serialize(instrumentData.ChannelLabels), instrumentData.Flags, instrumentData.HardwareVersion, instrumentData.HasAccurateMassPrecursors, instrumentData.IsTsqQuantumFile(), instrumentData.IsValid, instrumentData.Model, instrumentData.Name, instrumentData.SerialNumber, instrumentData.SoftwareVersion, Units: Serialize(instrumentData.Units));
